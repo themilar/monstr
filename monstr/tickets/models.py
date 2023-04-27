@@ -26,11 +26,26 @@ class Label(models.Model):
         STATUS = "status", "Status"
         PRIORITY = "priority", "Priority"
 
-    category = models.CharField(max_length=8, choices=Category.choices)
-    name = models.CharField(
-        "Name of the category", max_length=20, default="unspecified",unique=True
+    class Colour(models.TextChoices):
+        RED = "r", "Red"
+        GREEN = "gn", "Green"
+        BLUE = "b", "Blue"
+        YELLOW = "y", "Yellow"
+        GREY = "gy", "Grey"
+        PURPLE = "p", "Purple"
+
+    category = models.CharField(
+        "Category of the label", max_length=10, choices=Category.choices
     )
-    colour = models.CharField("Associated colour", max_length=20, default="grey")
+    name = models.CharField(
+        "Name of the label", max_length=20, default="unspecified", unique=True
+    )
+    colour = models.CharField(
+        "Associated colour", max_length=10, choices=Colour.choices, default=Colour.GREY
+    )
     ticket = models.ForeignKey(
         Ticket, null=True, on_delete=models.SET_NULL, related_name="labels"
     )
+
+    def __str__(self):
+        return f"{self.category.title()}: {self.name.title()}"
