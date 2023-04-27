@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import Ticket,Label
 
-# Register your models here.
+admin.site.register(Label)
+admin.site.register(Ticket)
