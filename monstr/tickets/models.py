@@ -18,10 +18,10 @@ class Ticket(TimeStampedModel):
     def __str__(self) -> str:
         return self.subject
 
-    # def save(self, *args, **kwargs):
-    #     if not self.slug:
-    #         self.slug = slugify(self.subject)
-    #     super().save(*args, **kwargs)
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.subject)
+        super().save(*args, **kwargs)
 
     def get_absolute_url(self):
         return reverse("ticket:detail", kwargs={"slug": self.slug})
