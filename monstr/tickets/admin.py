@@ -1,5 +1,12 @@
 from django.contrib import admin
-from .models import Ticket,Label
+from .models import Ticket, Label
 
-admin.site.register(Label)
-admin.site.register(Ticket)
+
+@admin.register(Ticket)
+class TicketAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("subject",)}
+
+
+@admin.register(Label)
+class LabelAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("name",)}
