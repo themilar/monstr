@@ -16,6 +16,7 @@ urlpatterns = [
     path("users/", include("monstr.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
+    path("tickets/", include("monstr.tickets.urls", namespace="tickets")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

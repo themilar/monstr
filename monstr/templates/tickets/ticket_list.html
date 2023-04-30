@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for ticket in tickets %}
+<p>{{ticket.subject}}</p>
+{% endfor %}
+{% endblock %}
