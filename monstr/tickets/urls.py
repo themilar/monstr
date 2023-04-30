@@ -8,5 +8,5 @@ urlpatterns = [
         view=TicketListView.as_view(),
         name="list",
     ),
-    path("<str:slug>/", view=TicketDetailView.as_view(), name="detail"),
+    path("<slug:slug>/", view=TicketDetailView.as_view(), name="detail"),
 ]

@@ -6,7 +6,7 @@ from model_utils.models import TimeStampedModel
 
 
 class Ticket(TimeStampedModel):
-    # category priority and status + as choices or related models
+    #category priority and status + as choices or related models
 
     subject = models.CharField("Subject of the ticket", max_length=255)
     content = models.TextField("Content", blank=True)
@@ -24,7 +24,7 @@ class Ticket(TimeStampedModel):
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse("ticket:detail", kwargs={"slug": self.slug})
+        return reverse("tickets:detail", kwargs={"slug": self.slug})
 
 
 class Label(models.Model):
@@ -65,3 +65,6 @@ class Label(models.Model):
 
     def __str__(self):
         return f"{self.category.title()}: {self.name.title()}"
+
+    def get_absolute_url(self):
+        return reverse("label:detail", kwargs={"slug": self.slug})
