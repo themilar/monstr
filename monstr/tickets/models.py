@@ -53,6 +53,7 @@ class Label(models.Model):
     colour = models.CharField(
         "Associated colour", max_length=10, choices=Colour.choices, default=Colour.GREY
     )
+    # ÷TODO:manyto many or add another foreign key with +
     ticket = models.ForeignKey(
         Ticket, null=True, on_delete=models.SET_NULL, related_name="labels"
     )
