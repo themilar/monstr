@@ -67,4 +67,4 @@ class Label(models.Model):
         return f"{self.category.title()}: {self.name.title()}"
 
     def get_absolute_url(self):
-        return reverse("label:detail", kwargs={"slug": self.slug})
+        return reverse("tickets:label_detail", kwargs={"slug": self.slug})

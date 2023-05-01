@@ -1,1 +1,12 @@
 {% extends 'base.html' %}
+{% block content %}
+<div>
+    <p>{{object.subject}}</p>
+    <p>{{object.content}} </p>
+    <span>
+        {% for label in labels %}
+     <a href="{%url 'tickets:label_detail' %}">{{label.name}}</a>
+        {% endfor %}
+    </span>
+</div>
+{% endblock %}

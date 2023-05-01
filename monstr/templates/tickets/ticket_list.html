@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 {% for ticket in tickets %}
-<p>{{ticket.subject}}</p>
+<div>
+  <p>
+
+   <a href="{% url 'tickets:detail' ticket.slug %}">{{ticket.subject}}</a>
+</p> 
+</div>
 {% endfor %}
 {% endblock %}

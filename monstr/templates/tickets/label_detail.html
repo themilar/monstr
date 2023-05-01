@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for ticket in labelled_tickets %}
+<p><a href="{url 'tickets:detail' }"> {{ticket.subject}}</a></p>
+{% endfor %}
+{% endblock content %}
