@@ -27,6 +27,6 @@ class LabelDetailView(DetailView):
 
     def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
         context = super().get_context_data(**kwargs)
-        slug = self.get_object().slug
-        context["labelled_tickets"] = Ticket.objects.filter(labels__slug=slug)
+        context["labelled_tickets"] = self.get_object().ticket
         return context
+    # query performance: 5queries in 7.21seconds ==>~5.93
