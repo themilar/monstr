@@ -6,7 +6,7 @@ from model_utils.models import TimeStampedModel
 
 
 class Ticket(TimeStampedModel):
-    #category priority and status + as choices or related models
+    # category priority and status + as choices or related models
 
     subject = models.CharField("Subject of the ticket", max_length=255)
     content = models.TextField("Content", blank=True)
@@ -54,9 +54,7 @@ class Label(models.Model):
         "Associated colour", max_length=10, choices=Colour.choices, default=Colour.GREY
     )
     # ÷TODO:manyto many or add another foreign key with +
-    ticket = models.ForeignKey(
-        Ticket, null=True, on_delete=models.SET_NULL, related_name="labels"
-    )
+    tickets = models.ManyToManyField(Ticket, related_name="labels",blank=True)
     slug = models.SlugField(unique=True)
 
     def save(self, *args, **kwargs):
