@@ -16,7 +16,7 @@ class TicketDetailView(DetailView):
     def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
         context = super().get_context_data(**kwargs)
         ticket_id = self.get_object().id
-        context["labels"] = Label.objects.filter(ticket_id=ticket_id)
+        context["labels"] = Label.objects.filter(tickets__id=ticket_id)
         return context
 
     # TODO: why didn't kwargs work?
