@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
 <div>
-    <p>{{object.subject}}</p>
+    <p>{{object.subject|capfirst}}</p>
     <p>{{object.content}} </p>
     <span>
         {% for label in labels %}
-        <a class="btn btn-primary rounded-pill" href="{%url 'tickets:label_detail' label.slug %}">{{label.name}}</a>
+        <a class="btn btn-primary rounded-pill" href="{%url 'tickets:label_detail' label.slug %}">{{label.name|lower}}</a>
+        {% empty %}
+        <p class="text-secondary">No labels added</p>
         {% endfor %}
     </span>
 </div>

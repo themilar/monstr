@@ -7,7 +7,7 @@
 {% for ticket in tickets %}
   <ul class="list-group list-group-flush">
    <li class="list-group-item">
-    <a href="{% url 'tickets:detail' ticket.slug %}">{{ticket.subject}}</a>
+    <a href="{% url 'tickets:detail' ticket.slug %}">{{ticket.subject|capfirst}}</a>
   </li>
 </ul > 
 {% endfor %}
