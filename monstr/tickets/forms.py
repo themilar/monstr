@@ -1,10 +1,14 @@
-from django.forms import ModelForm, ModelMultipleChoiceField
+from django.forms import ModelForm, ModelMultipleChoiceField,CheckboxSelectMultiple
 from .models import Ticket, Label
 
 
 # define save from
 class TicketForm(ModelForm):
-    labels = ModelMultipleChoiceField(queryset=Label.objects.all(), required=False)
+    labels = ModelMultipleChoiceField(
+        queryset=Label.objects.all(),
+        required=False,
+        widget=CheckboxSelectMultiple,
+    )
 
     def save(self, commit=True):
         ticket = super(TicketForm, self).save(commit=False)

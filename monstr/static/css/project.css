@@ -1,4 +1,47 @@
 /* These styles are generated from project.scss. */
+:root {
+  --bg-red: #ff3c32;
+  --bg-blue: #3c8fee;
+  --bg-green: #26e542;
+  --bg-yellow: #f8f11a;
+  --bg-grey: #878585;
+  --bg-purple: #3f4ce4;
+}
+
+/* .label-button{
+  border-radius: 50%;
+  background-color: var(--bg-blue);
+} */
+.redcustom {
+  background-color: var(--bg-red);
+}
+
+.bluecustom {
+  background-color: var(--bg-blue);
+}
+
+.greencustom {
+  background-color: var(--bg-green);
+}
+
+.yellowcustom {
+  background-color: var(--bg-yellow);
+}
+
+.purplecustom {
+  background-color: var(--bg-purple);
+}
+
+.greycustom {
+  background-color: var(--bg-grey);
+}
+
+.label-button {
+  border-radius: 2em;
+  padding-inline: 1.5em;
+  /* background-color: bisque; */
+  /* background-color: var(--bg-blue); */
+}
 
 .alert-debug {
   color: black;
