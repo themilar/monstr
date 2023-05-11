@@ -20,10 +20,7 @@ def test_ticket_detail(ticket: Ticket):
 
 def test_label_detail(label: Label):
     assert (
-        reverse("tickets:label_detail", kwargs={"slug", label.slug})
+        reverse("tickets:label_detail", kwargs={"slug": label.slug})
         == f"/tickets/labels/{label.slug}/"
     )
-
-    assert (
-        resolve(f"/tickets/labels/{label.slug}/").view_name == f"tickets:label_detail"
-    )
+    assert resolve(f"/tickets/labels/{label.slug}/").view_name == "tickets:label_detail"
