@@ -1,9 +1,9 @@
 import pytest
 
 from monstr.users.models import User
-from monstr.tickets.models import Ticket
+from monstr.tickets.models import Ticket, Label
 from monstr.users.tests.factories import UserFactory
-from monstr.tickets.tests.factories import TicketFactory
+from monstr.tickets.tests.factories import TicketFactory, LabelFactory
 
 
 @pytest.fixture(autouse=True)
@@ -19,3 +19,8 @@ def user(db) -> User:
 @pytest.fixture
 def ticket(db) -> Ticket:
     return TicketFactory()
+
+
+@pytest.fixture
+def label(db) -> Label:
+    return LabelFactory()
