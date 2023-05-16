@@ -3,6 +3,7 @@
 <div>
     <p>{{object.subject|capfirst}}</p>
     <p>{{object.content}} </p>
+    visits: {{visits}}
     <span>
         {% for label in labels %}
         <a class="btn label-button {{label.colour}}custom" href="{%url 'tickets:label_detail' label.slug %}">{{label.name|lower}}</a>

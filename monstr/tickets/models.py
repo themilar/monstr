@@ -54,7 +54,7 @@ class Label(models.Model):
         "Associated colour", max_length=10, choices=Colour.choices, default=Colour.GREY
     )
     # ÷TODO:manyto many or add another foreign key with +
-    tickets = models.ManyToManyField(Ticket, related_name="labels",blank=True)
+    tickets = models.ManyToManyField(Ticket, related_name="labels", blank=True)
     slug = models.SlugField(unique=True)
 
     def save(self, *args, **kwargs):
