@@ -16,8 +16,10 @@ class TicketDetailView(DetailView):
     def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
         context = super().get_context_data(**kwargs)
         ticket_id = self.get_object().id
-        visits = self.request.session.get("visits", 0)
-        self.request.session["visits"] = visits + 1
+        if ticket_id:
+            ticket_visits = f"visits{ticket_id}"
+        visits = self.request.session.get(ticket_visits, 0)
+        self.request.session[ticket_visits] = visits + 1
         context["labels"] = Label.objects.filter(tickets__id=ticket_id)
         context["visits"] = visits
 
