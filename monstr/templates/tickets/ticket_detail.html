@@ -6,7 +6,8 @@
     visits: {{visits}}
     <span>
         {% for label in labels %}
-        <a class="btn label-button {{label.colour}}custom" href="{%url 'tickets:label_detail' label.slug %}">{{label.name|lower}}</a>
+        <a class="btn label-button custom" href="{%url 'tickets:label_detail' label.slug %}"
+            data-colour={{label.colour}}>{{label.name|lower}}</a>
         {% empty %}
         <p class="text-secondary">No labels added</p>
         {% endfor %}

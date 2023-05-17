@@ -2,8 +2,8 @@
 :root {
   --bg-red: #ff3c32;
   --bg-blue: #3c8fee;
-  --bg-green: #26e542;
-  --bg-yellow: #f8f11a;
+  --bg-green: #158025;
+  --bg-yellow: #e9e906;
   --bg-grey: #878585;
   --bg-purple: #3f4ce4;
 }
@@ -12,35 +12,35 @@
   border-radius: 50%;
   background-color: var(--bg-blue);
 } */
-.redcustom {
+a[data-colour=red] {
   background-color: var(--bg-red);
 }
 
-.bluecustom {
+a[data-colour=blue] {
   background-color: var(--bg-blue);
 }
 
-.greencustom {
+a[data-colour=green] {
   background-color: var(--bg-green);
 }
 
-.yellowcustom {
+a[data-colour=yellow] {
   background-color: var(--bg-yellow);
 }
 
-.purplecustom {
+a[data-colour=purple] {
   background-color: var(--bg-purple);
+  color: white;
 }
 
-.greycustom {
+a[data-colour=grey] {
   background-color: var(--bg-grey);
 }
 
 .label-button {
   border-radius: 2em;
   padding-inline: 1.5em;
-  /* background-color: bisque; */
-  /* background-color: var(--bg-blue); */
+  color: white;
 }
 
 .alert-debug {
