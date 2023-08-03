@@ -1,1 +1,7 @@
 {% extends "base.html" %}
+{%block content%}
+<h1>Welcome to the ultimate bug catcher</h1>
+<p>
+    Check out the latest tickets here: <a href="{% url 'tickets:list' %}">Tickets</a>
+</p>
+{%endblock%}

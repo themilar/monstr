@@ -1,6 +1,8 @@
 from typing import Any, Dict, Optional
+from django.forms.models import BaseModelForm
+from django.http import HttpResponse
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView,CreateView
 from .models import Ticket, Label
 
 
@@ -27,6 +29,13 @@ class TicketDetailView(DetailView):
 
     # TODO: why didn't kwargs work?
 
+class TicketCreateView(CreateView):
+    model = Ticket
+    fields = ('subject','content',)
+
+    def form_valid(self, form: BaseModelForm) -> HttpResponse:
+        form.instance.creator = self.request.user
+        return super().form_valid(form)
 
 class LabelDetailView(DetailView):
     model = Label
