@@ -7,9 +7,18 @@
 {% for ticket in tickets %}
   <ul class="list-group list-group-flush">
    <li class="list-group-item">
-    <a href="{% url 'tickets:detail' ticket.slug %}">{{ticket.subject|capfirst}}</a>
+    <a href="{% url 'tickets:detail' ticket.slug %}">
+      {{ticket.subject|capfirst}}
+    </a>
   </li>
 </ul > 
 {% endfor %}
 </div>
-{% endblock %}
+{% endblock content %}
+
+{% block modal %}
+<p class="container mt-4" >
+  Can't find the ticket you're looking for? 
+  <a href="{% url 'tickets:create' %}">Create one</a>
+</p>
+{% endblock modal %}

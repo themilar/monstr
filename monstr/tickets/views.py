@@ -2,7 +2,9 @@ from typing import Any, Dict, Optional
 from django.forms.models import BaseModelForm
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.utils.translation import gettext_lazy as _
 from django.views.generic import ListView, DetailView,CreateView
+from django.contrib.messages.views import SuccessMessageMixin
 from .models import Ticket, Label
 
 
@@ -29,8 +31,9 @@ class TicketDetailView(DetailView):
 
     # TODO: why didn't kwargs work?
 
-class TicketCreateView(CreateView):
+class TicketCreateView(SuccessMessageMixin,CreateView):
     model = Ticket
+    success_message = _("Ticket created successfully.")
     fields = ('subject','content',)
 
     def form_valid(self, form: BaseModelForm) -> HttpResponse:
